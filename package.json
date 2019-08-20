@@ -4,7 +4,8 @@
   "description": "node, express and mongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start:dev": "nodemon server.js",
+    "start:prod": "set NODE_ENV=production && nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,7 @@
   "author": "shownola",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "morgan": "^1.9.1"
   }
