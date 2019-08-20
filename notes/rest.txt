@@ -30,3 +30,10 @@ Wrapping the data into an additional object is called enveloping.
 Response Formatting
 
 5. Be stateless: All state is handled on the client, not the server. This means that each request must contain all the information necessary to process a certain request. The server should NOT have to remember previous requests.
+
+///////////// REQUEST-RESPONSE PATH FLOW ////////////////
+server.js ->
+  app.js ->
+    routes routes/tourRoutes - userRoutes ->
+      controllers tourController - userController ->
+        END

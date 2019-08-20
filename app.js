@@ -22,32 +22,8 @@ app.use((req, res, next) => {
 });
 
 
-
-
-// ROUTE HANDLERS
-
-
-
-
-// app.get('/api/v1/tours', getAllTours);
-// app.get('/api/v1/tours/:id', getTour);
-// app.post('/api/v1/tours', createTour);
-// app.patch('/api/v1/tours/:id', updateTour);
-// app.delete('/api/v1/tours/:id', deleteTour);
-
-//ROUTES
-
-
-
 app.use('/api/v1/tours', tourRouter);
 
 app.use('/api/v1/users', userRouter);
 
-
-
-
-// START SERVER
-const port = 3000;
-app.listen(port, () => {
-  console.log(`App running on port ${port}...`)
-});
+module.exports = app;
