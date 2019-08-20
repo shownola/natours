@@ -1,0 +1,32 @@
+Restful Architecture:
+1. Separate API into logical resources - Resource - an object or representation of something, which has data associated to it. Any information that can be named can be a resource (tours, users, reviews, etc.). Must be a name not a verb
+2. Expose structured resource-based URLs - https://www.natours.com/addNewTour - https-.com is the URL and addNewTour is the ENDPOINT. The api can have many different endpoints, ie /getTour, /updateTour ...
+3. Use HTTP methods (verbs) - Endpoints should contain ONLY RESOURCES(nouns), and use HTTP methods for actions. so the above endpoints are WRONG.  The endpoints should be /tours.  The resource name should be plural.
+
+    CREATE  POST                /tours
+    READ    GET                 /tours/7
+    UPDATE  PUT/PATCH           /tours/7
+    DELETE  DELETE or destroy   /tours/7
+
+    5 http methods: post, get, put, patch, delete or destroy
+
+4. Send data as JSON (usually):
+{
+  'id': 5,
+  'tourName': 'The Park',
+  'rating': '4.9',
+  'guides': [
+    {'name': 'Steve Guider'},
+    {'role': 'Lead Guide'}
+  ],
+}
+the id is a STRING
+5 is the value
+everything within the {} is the object
+everything within the [] is an array
+rating : 4.9 is a key-value pair
+
+Wrapping the data into an additional object is called enveloping.
+Response Formatting
+
+5. Be stateless: All state is handled on the client, not the server. This means that each request must contain all the information necessary to process a certain request. The server should NOT have to remember previous requests.

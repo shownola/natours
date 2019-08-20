@@ -1,0 +1,6 @@
+THE REQUEST-RESPONSE CYCLE WITH EXPRESS:
+
+Middleware Stack
+Order as defined in the code
+
+INCOMING REQUEST -> parsing body next() -> logging next() -> setting headers next() -> router res.send(...) -> RESPONSE
