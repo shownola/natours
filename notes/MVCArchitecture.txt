@@ -1,0 +1,15 @@
+REQUEST -> Router(tourRouter, userRouter ...) -> CONTROLLER handles the Application Logic (tourController, userController) -><- MODEL handles the Business Logic (tourModel, userModel) -> VIEW handles the presentation (overview.ejs, tour.pug, login.html)
+
+
+CONTROLLER --> RESPONSE
+                      MODEL
+                        |^
+                        v|
+REQUEST -> ROUTER -> CONTROLLER -->  RESPONSE
+                        | ^
+                        v |
+                      VIEW
+
+APPLICATION LOGIC: Code that is only concerned about the application's implementation, not the underlying business problem we're trying to solve (eg. showing and selling tours). Concerns are about managing request and responses and about the more technical aspects of the app. This is the BRIDGE between the model and view layers.
+
+BUSINESS LOGIC: Code that solves the business aspects. Directly related to the needs of the business, i.e. managing inventory, reviews, followers, etc.

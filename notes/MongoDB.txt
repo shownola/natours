@@ -1,0 +1,66 @@
+Document Structure:
+BSON: Data format MongoDB uses for data storage. Like JSON, but typed. So mongoDB documents are typed.
+
+{
+  "_id": ObjectID('987456321'),
+  "title": "Rockets, Cars and MongoDB",
+  "author": "Elon Musk",
+  "length": 3280,
+  "published": true,
+  "tags": ["mongoDB", "space", "ev"],
+  "comments": [
+  {"author": "Jonathan", "text": "Interesting stuff!"},
+  {"author": "Kelly", "coded": "How did you do it!"},
+  {"author": "Jackson", "text": "My rockets are better"}
+  ]
+}
+RELATIONAL - SQL:
+id  title   author      length  published tags    comments
+------------------------------------------------------------------
+1   rockets Elon Musk   3280    true      --*-     -*--**--
+
+* - Cannot have multiple values in one field
+** Embedded documents allowed in mongoDB but not in SQL as in the comments
+
+** Embedding/Denormalizing: Including related data into a single document. This allows for quicker access and easier data models (it's not always the best solution though).
+
+in SQL data is always normalized: you 'join tables' and reference by comments_id
+
+id    author    text
+-------------------------------
+1     Jackson   My rockets are better
+2     Kelly     How did you do it
+3     Jonathan  Interesting stuff
+
+mongodb+srv://swasieko:<password>@cluster0-cjxob.mongodb.net/test
+
+FOR LOCAL DB: In the config.env file:
+DATABASE_LOCAL=mongodb://localhost:27017/natours-app
+
+IN THE server.js file:
+mongoose.connect(process.env.DATABASE_LOCAL, {
+  useNewUrlParser: true,
+  userCreateIndex: true,
+  useFindAndModify: false
+}).then(() => console.log('DB connection successful'));
+
+
+This is just for testing :
+const testTour = new Tour({
+  name: 'The Park Camper',
+  rating: 4.9,
+  price: 997
+});
+testTour.save().then(doc => {
+  console.log(doc);
+}).catch(err => {
+  console.log('ERROR:', err);
+});
+
+
+WHAT IS MONGOOSE?
+- an Object Data Modeling (ODM) library for MongoDB and Node.js, a higher level of abstraction. (Just as in express to node mongoose to mongo)
+- Mongoose allows for rapid and simple development of mongoDB interactions.
+- Features: schemas to model data and relationships, and data    validation, simple query API, middleware, etc.
+- Mongoose schema: where we model our data, by describing the structure of the data, default values and validation.
+- Mongoose model: a wrapper for the schema, providing an interface to the database for CRUD operations
