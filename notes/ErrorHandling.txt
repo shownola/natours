@@ -1,0 +1,8 @@
+ERRORS
+OPERATIONAL ERRORS:
+Problems that you can predict will happen at some point, so handle them in advance.
+- Invalid path accessed
+- Invalid user input (validator error from mongoose)
+- Failed to connect to server
+- Failed to connect to database
+- Request timeout
