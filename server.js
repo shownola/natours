@@ -23,10 +23,17 @@ mongoose.connect(DB, {
 }).then(() => console.log('DB connection successful'));
 // see MongoDB.txt for local DB instr.
 
-
-
 // START SERVER
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`App running on port ${port}...`)
+});
+
+// Handling rejections
+process.on('unhandledRejection', err => {
+  console.log(err.name, err.messsage);
+  console.log('UNHANDLED REJECTION, shutting down...');
+  server.close(() => {
+      process.exit(1);
+  });
 });
