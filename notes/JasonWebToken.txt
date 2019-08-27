@@ -1,0 +1,42 @@
+JASON WEB TOKEN:
+An open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. The information can be verified and trusted because it is digitally signed. The token is composed of a header, a payload and a signature. Simply put, it is just a string with the following format:
+  header.payload.signature
+A double quoted string is actually considered a JSON object.
+An example will be a 3 party entity: user, authentication server and application server. The authentication server will provide the JWT to the user. With that the user can safely communicate with the application.
+
+The user first signs into the authentication server using the authentication server’s login system (e.g. username and password, Facebook login, Google login, etc). The authentication server then creates the JWT and sends it to the user. When the user makes API calls to the application, the user passes the JWT along with the API call. In this setup, the application server would be configured to verify that the incoming JWT are created by the authentication server. So, when the user makes API calls with the attached JWT, the application can use the JWT to verify that the API call is coming from an authenticated user.
+
+1. CREATE THE HEADER: The header component of the JWT contains information about how the signature should be computed. The header is a json object with the following format:
+        {
+            "typ": "JWT",
+            "alg": "HS256"
+        }
+In this JSON, the value of the “typ” key specifies that the object is a JWT, and the value of the “alg” key specifies which hashing algorithm is being used to create the JWT signature component.
+
+2. CREATE THE PAYLOAD:  The payload component of the JWT is the data that's stored inside of the JWT and is also referred to as the 'CLAIMS' of the JWT. The claim inside the payload usually the UserId
+    {
+       "userId": "b08f86af-35da-48f2-8fab-cef3904660bd"
+    }
+You can put as many claims as you like. There are several different standard claims for the JWT payload, such as “iss” the issuer, “sub” the subject, and “exp” the expiration time. These fields can be useful when creating JWT, but they are optional. Keep in mind that the size of the data will affect the overall size of the JWT, this generally isn’t an issue but having excessively large JWT may negatively affect performance and cause latency.
+
+3. CREATE THE SIGNATURE:  The signature is computed using the following pseudo code:
+  // signature algorithm
+  data = base64urlEncode( header ) + “.” + base64urlEncode( payload )
+  hashedData = hash( data, secret )
+  signature = base64urlEncode( hashedData )
+What this algorithm does is base64url encodes the header and the payload created in steps 1 and 2. The algorithm then joins the resulting encoded strings together with a period (.) in between them.In our pseudo code, this joined string is assigned to data. The data string is hashed with the secret key using the hashing algorithm specified in the JWT header. The resulting hashed data is assigned to hashedData. This hashed data is then base64url encoded to produce the JWT signature.
+In our example, both the header, and the payload are base64url encoded as:
+// header
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+// payload
+eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ
+
+Then, applying the specified signature algorithm with the secret key on the period-joined encoded header and encoded payload, we get the hashed data needed for the signature. In our case, this means applying the HS256 algorithm, with the secret key set as the string “secret”, on the data string to get the hashedData string. After, through base64url encoding the hashedData string we get the following JWT signature:
+        // signature
+        -xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+
+4. PUT ALL THREE JWT COMPONENTS TOGETHER: Now that we have created all three components, we can create the JWT. We simply need to combine the components, with periods (.) separating them.
+    // JWT Token
+    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+
+5. VERIFYING THE JWT: In our simple 3 entity example, we are using a JWT that is signed by the HS256 algorithm where only the authentication server and the application server know the secret key. The application server receives the secret key from the authentication server when the application sets up its authentication process. Since the application knows the secret key, when the user makes a JWT-attached API call to the application, the application can perform the same signature algorithm as in Step 3 on the JWT. The application can then verify that the signature obtained from it’s own hashing operation matches the signature on the JWT itself (i.e. it matches the JWT signature created by the authentication server). If the signatures match, then that means the JWT is valid which indicates that the API call is coming from an authentic source. Otherwise, if the signatures don’t match, then it means that the received JWT is invalid, which may be an indicator of a potential attack on the application. So by verifying the JWT, the application adds a layer of trust between itself and the user.
