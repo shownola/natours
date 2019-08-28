@@ -49,3 +49,52 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjVjZDI1MWEzNTYyMzIwODEzNzA1OSI
 
   "status": "success",
    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjVjZDI1MWEzNTYyMzIwODEzNzA1OSIsImlhdCI6MTU2Njk1MzUxNSwiZXhwIjoxNTc0NzI5NTE1fQ.RA6dAQUh-sni0wMpemaIWX5zbwOq3Ra45lFwkRqcCVA"
+
+donald:
+"status": "success",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjYwMDM0ZTQwZTFkNDk2MDNjMDRiYiIsImlhdCI6MTU2Njk2NTgxMiwiZXhwIjoxNTc0NzQxODEyfQ.O6eZgabLijabD64__skVtiYr9XJVcDFoyubKWouvywE",
+    "data": {
+        "user": {
+            "_id": "5d660034e40e1d49603c04bb",
+            "name": "Donald-",
+            "email": "donald@email.com",
+            "password": "$2a$12$eTUULb9FAm.fjj9TqBuid.Iy.KPHiq02mKJ7c5V/D3wRrAzsB8kN2",
+            "__v": 0
+
+Donald's token:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjYwMDM0ZTQwZTFkNDk2MDNjMDRiYiIsImlhdCI6MTU2Njk2Njc2MCwiZXhwIjoxNTc0NzQyNzYwfQ.nu0MDnK6iU_eSanErDH9b3It3xcbm2oCcL6Zj1vJxNg
+
+"status": "success",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjYwNTMwNmU2MGQ1MWU2MDMyZDIwMSIsImlhdCI6MTU2Njk2NzA4OSwiZXhwIjoxNTc0NzQzMDg5fQ.4nx2HKms3KMWIijkz2LqqfCvT8PUkf9UF0guWxqAxNc",
+    "data": {
+        "user": {
+            "_id": "5d6605306e60d51e6032d201",
+            "name": "DonaldTrump",
+            "email": "donald@email.com",
+            "password": "$2a$12$.3uijYPsKyho6AW9kN1Otup31EWEe/haEnVWhyz9HrvLEYb3zufra",
+
+            "status": "success",
+              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjYwNTMwNmU2MGQ1MWU2MDMyZDIwMSIsImlhdCI6MTU2Njk2NzA4OSwiZXhwIjoxNTc0NzQzMDg5fQ.4nx2HKms3KMWIijkz2LqqfCvT8PUkf9UF0guWxqAxNc",
+              "data": {
+                  "user": {
+                      "_id": "5d6605306e60d51e6032d201",
+                      "name": "DonaldTrump",
+                      "email": "donald@email.com",
+                      "password": "$2a$12$.3uijYPsKyho6AW9kN1Otup31EWEe/haEnVWhyz9HrvLEYb3zufra",
+
+                      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjYwNTMwNmU2MGQ1MWU2MDMyZDIwMSIsImlhdCI6MTU2Njk2NzY5NSwiZXhwIjoxNTc0NzQzNjk1fQ.YrG1KnN5x4I2hrMaEwf4vNBUgfwJx-FMR9i-hTYzTfY
+
+                      ===============================
+  {
+      "status": "success",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjY5ZmNlOTY3ZDdjNGFlY2NmNDEyNiIsImlhdCI6MTU2NzAwNjY3MCwiZXhwIjoxNTc0NzgyNjcwfQ.xxROUzJB87ldYMQL-41c3elQf7fguivPAZyzPYhzOzE",
+      "data": {
+          "user": {
+              "_id": "5d669fce967d7c4aeccf4126",
+              "name": "sally",
+              "email": "sally@email.com",
+              "password": "$2a$12$w0K8y0mq2h0F8WuiKWEr5.HzIvTykRYKiqYhhVSSDx0cjeozvr0eK",
+              "__v": 0
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjY5ZmNlOTY3ZDdjNGFlY2NmNDEyNiIsImlhdCI6MTU2NzAwNjY3MCwiZXhwIjoxNTc0NzgyNjcwfQ.xxROUzJB87ldYMQL-41c3elQf7fguivPAZyzPYhzOzE                             
