@@ -40,3 +40,12 @@ Then, applying the specified signature algorithm with the secret key on the peri
     eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
 
 5. VERIFYING THE JWT: In our simple 3 entity example, we are using a JWT that is signed by the HS256 algorithm where only the authentication server and the application server know the secret key. The application server receives the secret key from the authentication server when the application sets up its authentication process. Since the application knows the secret key, when the user makes a JWT-attached API call to the application, the application can perform the same signature algorithm as in Step 3 on the JWT. The application can then verify that the signature obtained from it’s own hashing operation matches the signature on the JWT itself (i.e. it matches the JWT signature created by the authentication server). If the signatures match, then that means the JWT is valid which indicates that the API call is coming from an authentic source. Otherwise, if the signatures don’t match, then it means that the received JWT is invalid, which may be an indicator of a potential attack on the application. So by verifying the JWT, the application adds a layer of trust between itself and the user.
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjVjZDI1MWEzNTYyMzIwODEzNzA1OSIsImlhdCI6MTU2Njk1Mjc0MSwiZXhwIjoxNTc0NzI4NzQxfQ.QjhxAHVUYf02yx0X56ZoCrCT56TRIso7DJw9uy8K_Lg
+
+"password": "Bradley123",
+	"passwordConfirm": "Bradley123"
+
+  "status": "success",
+   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNjVjZDI1MWEzNTYyMzIwODEzNzA1OSIsImlhdCI6MTU2Njk1MzUxNSwiZXhwIjoxNTc0NzI5NTE1fQ.RA6dAQUh-sni0wMpemaIWX5zbwOq3Ra45lFwkRqcCVA"
