@@ -54,6 +54,10 @@ userSchema.pre('save', async function(next){
   next();
 });
 
+// userSchema.pre('save', function(next){
+//     if (!this.isModifi)
+// });
+
 userSchema.methods.correctPassword = async function(candidatePassword, userPassword){
   return await bcrypt.compare(candidatePassword, userPassword);
 };
@@ -71,7 +75,7 @@ userSchema.methods.changedPasswordAfter = function(JWTTimestamp){
 userSchema.methods.createPasswordResetToken = function(){
   const resetToken = crypto.randomBytes(32).toString('hex');
 
-  this.passwordConfirm = crypto.createHash('sha256').update(resetToken).digest('hex');
+  this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
 
   console.log({resetToken}, this.passwordResetToken);
 
